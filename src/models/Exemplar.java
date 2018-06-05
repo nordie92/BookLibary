@@ -15,9 +15,9 @@ public class Exemplar extends Book implements Serializable {
 	
 	public String toString() {
 		if (borrower != null) {
-			return getTitle() + " - " + Libary.fuehrendeNullen(Integer.toString(id), 5) + " - " + borrower.toString();
+			return Libary.fuehrendeNullen(Integer.toString(id), 5) + " - " + borrower.toString();
 		} else {
-			return getTitle() + " - " + Libary.fuehrendeNullen(Integer.toString(id), 5);
+			return Libary.fuehrendeNullen(Integer.toString(id), 5);
 		}
 	}
 
