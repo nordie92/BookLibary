@@ -80,11 +80,7 @@ public class UiLibary extends JFrame {
 			public void mouseClicked(MouseEvent evt) {
 				int index = bookList.locationToIndex(evt.getPoint());
 				Book book = bookList.getModel().getElementAt(index);
-				bookDetails.setTitle(book.getTitle());
-				bookDetails.setGenre(book.getGenre());
-				bookDetails.setAuthor(book.getAuthor());
-				bookDetails.setISBN(book.getIsbn());
-				
+				bookDetails.showBook(book);
 				exemplarsList.setExemplars(book.getExemplars());
 			}
 		});
@@ -107,9 +103,13 @@ public class UiLibary extends JFrame {
 						newCustomer.getLastName(),
 						newCustomer.getMail(),
 						newCustomer.getPhone());
-				libary.addCustomer(c);
-				customerList.add(c);
-				libary.serialize();
+				if (c.isValid()) {
+					libary.addCustomer(c);
+					customerList.add(c);
+					libary.serialize();
+				} else {
+					showDialog("Error", "Inputs not valid!");
+				}
 			}
 		});
 		this.add(btnAddCustomer);

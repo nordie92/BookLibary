@@ -1,8 +1,8 @@
 package ui;
 
 import java.awt.Color;
-
 import javax.swing.*;
+import models.*;
 
 public class UiBookDetails extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -68,19 +68,10 @@ public class UiBookDetails extends JPanel {
 		this.add(isbnField);
 	}
 	
-	public void setTitle(String title) {
-		titleField.setText(title);
-	}
-	
-	public void setAuthor(String authot) {
-		authorField.setText(authot);
-	}
-	
-	public void setGenre(String genre) {
-		genreField.setText(genre);
-	}
-	
-	public void setISBN(String isbn) {
-		isbnField.setText(isbn);
+	public void showBook(Book book) {
+		titleField.setText(book.getTitle());
+		authorField.setText(book.getAuthor());
+		genreField.setText(book.getGenre());
+		isbnField.setText(book.getIsbn());
 	}
 }
